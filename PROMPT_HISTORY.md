@@ -21,6 +21,18 @@ This record is included because the assignment asks candidates to submit prompt 
 
 > check out the best possbile project we can submit for me to the job applications
 
+## User prompt 3 — repository delivery
+
+> ok add it to the github and do explain what we are doing here
+
+## User prompt 4 — project and README scope
+
+> continue and add the project with everything necessaryt in the github and amke sure add a iconed readme with deep explainations and everything needed
+
+## User prompt 5 — visual and setup refinement
+
+> replace the emojies withj some icons images and more porfessional setup and all
+
 ## Assistant-derived implementation brief
 
 The following is the working brief distilled from the assignment above; it is written by the coding assistant, not a verbatim user prompt:

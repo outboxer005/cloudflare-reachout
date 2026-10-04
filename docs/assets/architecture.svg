@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 650" role="img" aria-labelledby="title desc">
+  <title id="title">RoleSignal application architecture</title>
+  <desc id="desc">The browser connects to a CareerAgent Durable Object. The agent starts a Cloudflare Workflow, which calls Workers AI and saves review results to persistent workspace state.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 9 4.5 0 9z" fill="#62816d"/>
+    </marker>
+    <marker id="arrow-reverse" markerWidth="9" markerHeight="9" refX="2" refY="4.5" orient="auto">
+      <path d="M9 0 0 4.5 9 9z" fill="#62816d"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#193d2b" flood-opacity=".06"/>
+    </filter>
+  </defs>
+  <rect width="1360" height="650" rx="24" fill="#f7f8f4"/>
+  <text x="54" y="58" fill="#1e2a24" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">One review, coordinated across the Worker stack</text>
+  <text x="54" y="84" fill="#778078" font-family="Inter, Arial, sans-serif" font-size="13">User input, durable orchestration, model calls, and saved workspace state.</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="54" y="132" width="322" height="196" rx="16" fill="#fff" stroke="#e3e8df"/>
+    <rect x="54" y="132" width="6" height="196" rx="3" fill="#9cb99b"/>
+    <text x="82" y="166" fill="#819084" font-size="10" font-weight="700" letter-spacing="1.4">USER INPUT</text>
+    <text x="82" y="199" fill="#1e2a24" font-size="20" font-weight="700">Browser workspace</text>
+    <text x="82" y="230" fill="#68746b" font-size="13">React profile and role form</text>
+    <text x="82" y="253" fill="#68746b" font-size="13">Chat UI and review progress</text>
+    <text x="82" y="290" fill="#267553" font-size="11" font-weight="700">Agents SDK WebSocket</text>
+
+    <rect x="519" y="132" width="322" height="196" rx="16" fill="#fff" stroke="#e3e8df"/>
+    <rect x="519" y="132" width="6" height="196" rx="3" fill="#267553"/>
+    <text x="547" y="166" fill="#819084" font-size="10" font-weight="700" letter-spacing="1.4">PERSISTENT AGENT</text>
+    <text x="547" y="199" fill="#1e2a24" font-size="20" font-weight="700">CareerAgent</text>
+    <text x="547" y="230" fill="#68746b" font-size="13">Durable Object workspace</text>
+    <text x="547" y="253" fill="#68746b" font-size="13">Profile, review, and chat state</text>
+    <text x="547" y="290" fill="#267553" font-size="11" font-weight="700">Callable methods + chat stream</text>
+
+    <rect x="984" y="132" width="322" height="196" rx="16" fill="#fff" stroke="#e3e8df"/>
+    <rect x="984" y="132" width="6" height="196" rx="3" fill="#d2a456"/>
+    <text x="1012" y="166" fill="#819084" font-size="10" font-weight="700" letter-spacing="1.4">DURABLE ORCHESTRATION</text>
+    <text x="1012" y="199" fill="#1e2a24" font-size="20" font-weight="700">Review Workflow</text>
+    <text x="1012" y="230" fill="#68746b" font-size="13">Extract role requirements</text>
+    <text x="1012" y="253" fill="#68746b" font-size="13">Map evidence and draft the prep kit</text>
+    <text x="1012" y="290" fill="#9a6e2d" font-size="11" font-weight="700">Checkpointed steps + progress</text>
+  </g>
+
+  <path d="M388 216h116" fill="none" stroke="#62816d" stroke-width="2" marker-start="url(#arrow-reverse)" marker-end="url(#arrow)"/>
+  <rect x="391" y="186" width="112" height="22" rx="11" fill="#f7f8f4"/>
+  <text x="447" y="201" fill="#738175" font-family="Inter, Arial, sans-serif" font-size="9" text-anchor="middle">state + chat</text>
+
+  <path d="M853 216h116" fill="none" stroke="#62816d" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="861" y="186" width="100" height="22" rx="11" fill="#f7f8f4"/>
+  <text x="911" y="201" fill="#738175" font-family="Inter, Arial, sans-serif" font-size="9" text-anchor="middle">start review</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="519" y="416" width="322" height="166" rx="16" fill="#f1f6f0" stroke="#dce8db"/>
+    <text x="547" y="450" fill="#63816d" font-size="10" font-weight="700" letter-spacing="1.4">STATE AND MEMORY</text>
+    <text x="547" y="484" fill="#1e2a24" font-size="18" font-weight="700">Durable Object storage</text>
+    <text x="547" y="514" fill="#68746b" font-size="12">Profile · role reviews · progress</text>
+    <text x="547" y="537" fill="#68746b" font-size="12">Agents SDK persisted chat messages</text>
+    <text x="547" y="562" fill="#63816d" font-size="10" font-weight="700">WORKSPACE STATE</text>
+
+    <rect x="984" y="416" width="322" height="166" rx="16" fill="#fff8ed" stroke="#efe3cf"/>
+    <text x="1012" y="450" fill="#a27d42" font-size="10" font-weight="700" letter-spacing="1.4">MODEL SERVICE</text>
+    <text x="1012" y="484" fill="#1e2a24" font-size="18" font-weight="700">Workers AI</text>
+    <text x="1012" y="514" fill="#68746b" font-size="12">Llama 3.3 70B FP8 Fast</text>
+    <text x="1012" y="537" fill="#68746b" font-size="12">Structured analysis and streamed chat</text>
+    <text x="1012" y="562" fill="#a27d42" font-size="10" font-weight="700">ACCOUNT BINDING</text>
+  </g>
+
+  <path d="M680 338v66" fill="none" stroke="#62816d" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="694" y="377" fill="#738175" font-family="Inter, Arial, sans-serif" font-size="9">persist</text>
+
+  <path d="M1145 338v66" fill="none" stroke="#62816d" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1158" y="377" fill="#738175" font-family="Inter, Arial, sans-serif" font-size="9">model calls</text>
+
+  <path d="M1144 411V370H1045V338" fill="none" stroke="#b39668" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <text x="1078" y="362" fill="#9a8058" font-family="Inter, Arial, sans-serif" font-size="9">responses</text>
+
+  <path d="M969 304H900V367H683V405" fill="none" stroke="#88a18c" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <text x="806" y="357" fill="#738175" font-family="Inter, Arial, sans-serif" font-size="9">progress and completed review</text>
+</svg>
