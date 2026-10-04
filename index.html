@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Turn a job description and your verified experience into an evidence-backed application plan."
+		/>
+		<meta name="theme-color" content="#f4f3ef" />
+		<title>RoleSignal — Make your next move with evidence</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<script>
+			(() => {
+				const mode = localStorage.getItem("theme") || "light";
+				document.documentElement.setAttribute("data-mode", mode);
+				document.documentElement.style.colorScheme = mode;
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/client.tsx"></script>
+	</body>
+</html>

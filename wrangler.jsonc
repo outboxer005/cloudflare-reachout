@@ -1,0 +1,39 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "rolesignal",
+	"main": "src/server.ts",
+	"compatibility_date": "2026-10-04",
+	"compatibility_flags": ["nodejs_compat"],
+	"ai": { "binding": "AI", "remote": true },
+	"assets": {
+		"directory": "./public",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/agents/*", "/oauth/*"]
+	},
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "CareerAgent",
+				"name": "CareerAgent"
+			}
+		]
+	},
+	"workflows": [
+		{
+			"name": "application-review",
+			"binding": "APPLICATION_REVIEW",
+			"class_name": "ApplicationReviewWorkflow"
+		}
+	],
+	"migrations": [
+		{
+			"new_sqlite_classes": ["CareerAgent"],
+			"tag": "v1"
+		}
+	],
+	"observability": {
+		"enabled": true,
+		"logs": { "enabled": true, "head_sampling_rate": 1 },
+		"traces": { "enabled": true, "head_sampling_rate": 0.05 }
+	}
+}
