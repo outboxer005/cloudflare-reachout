@@ -93,6 +93,8 @@ Wrangler creates or updates the Worker resources declared in `wrangler.jsonc`; u
 
 See [`PROMPT_HISTORY.md`](./PROMPT_HISTORY.md) for the submitted assignment prompt and coding prompt record.
 
+For an interview-ready architecture explanation and demo script, see [`PROJECT_WALKTHROUGH.md`](./PROJECT_WALKTHROUGH.md).
+
 ## Cloudflare references
 
 - [Agents SDK](https://developers.cloudflare.com/agents/)
